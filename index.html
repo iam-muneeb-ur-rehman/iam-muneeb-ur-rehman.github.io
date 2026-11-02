@@ -186,8 +186,12 @@ section.block.wide .wrap{grid-template-columns:1fr;gap:22px}
 .skillgrid li{padding-bottom:4px;border-bottom:1px dashed var(--rule)}
 
 /* languages */
-.langs{display:grid;grid-template-columns:200px 1fr;gap:12px;align-items:start}
+.langs{display:grid;grid-template-columns:230px 1fr;gap:12px;align-items:start}
 @media (max-width:700px){.langs{grid-template-columns:1fr}}
+.lang-side{display:grid;gap:12px;min-width:0}
+.lang-sch{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.45}
+.lang-sch a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.lang-sch a:hover{color:var(--signal);text-decoration-color:var(--signal)}
 .lang-card{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:14px 16px;min-width:0}
 .lang-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .lang-card h3{font-family:var(--display);font-size:20px;font-weight:600;margin:2px 0 8px}
@@ -310,6 +314,7 @@ footer span{opacity:.6}
         <p class="lede">Telecommunication engineer who takes radar, surveillance and security systems from design to handover. <span>Eight years in defence projects, now studying machine learning for embedded systems.</span></p>
         <div class="cta">
           <a class="btn primary" href="#contact">Get in touch →</a>
+          <a class="btn" href="CV_Muneeb_ur_Rehman.pdf" target="_blank" rel="noopener">Download CV ↓</a>
           <a class="btn" href="#projects">See projects</a>
           <a class="btn" href="https://www.linkedin.com/in/muhammad-muneeb-ur-rehman-chaudhary-04a14235a/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
@@ -478,10 +483,18 @@ footer span{opacity:.6}
       <div class="rail">Languages<h2>Language proficiency</h2></div>
       <div class="content">
         <div class="langs">
-          <div class="lang-card">
-            <div class="lang-k">Mother tongue</div>
-            <h3>Urdu</h3>
-            <div class="lvd">Native speaker</div>
+          <div class="lang-side">
+            <div class="lang-card">
+              <div class="lang-k">Mother tongue</div>
+              <h3>Urdu</h3>
+              <div class="lvd">Native speaker</div>
+            </div>
+            <div class="lang-card">
+              <div class="lang-k">Learning</div>
+              <h3>German</h3>
+              <div class="lvd">Language course · Sep – Oct 2026</div>
+              <div class="lang-sch"><a href="https://numl.edu.pk/" target="_blank" rel="noopener">National University of Modern Languages (NUML) ↗</a>, Pakistan</div>
+            </div>
           </div>
           <div class="lang-card">
             <div class="lang-k">Other language · CEFR levels</div>
@@ -515,6 +528,7 @@ footer span{opacity:.6}
     <div class="chan">
       <div class="row"><div><div class="k">Email</div><div class="v" id="em">munibch786@gmail.com</div></div><button class="copy" id="copyEm" type="button">Copy</button></div>
       <div class="row"><div><div class="k">LinkedIn</div><div class="v"><a class="lnk" href="https://www.linkedin.com/in/muhammad-muneeb-ur-rehman-chaudhary-04a14235a/" target="_blank" rel="noopener">Muneeb Rehman Chaudhary</a></div></div><a class="copy" href="https://www.linkedin.com/in/muhammad-muneeb-ur-rehman-chaudhary-04a14235a/" target="_blank" rel="noopener">Open ↗</a></div>
+      <div class="row"><div><div class="k">CV</div><div class="v"><a class="lnk" href="CV_Muneeb_ur_Rehman.pdf" target="_blank" rel="noopener">Muneeb Ur Rehman, CV (PDF)</a></div></div><a class="copy" href="CV_Muneeb_ur_Rehman.pdf" target="_blank" rel="noopener">Open ↗</a></div>
       <div class="row"><div><div class="k">Based in</div><div class="v">Pakistan</div></div></div>
     </div>
   </div>

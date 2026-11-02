@@ -262,6 +262,56 @@ section.block.wide .wrap{grid-template-columns:1fr;gap:22px}
 a.pill:hover{background:var(--scope);color:var(--panel)}
 .pill.soon{background:transparent;border:1px dashed var(--rule);color:var(--muted);font-weight:500;font-size:12.5px}
 
+/* timeline modal */
+.rail-row{display:flex;flex-direction:column;gap:10px}
+section.block.wide .rail-row{flex-direction:row;justify-content:space-between;align-items:flex-end;flex-wrap:wrap}
+.tl-open{font-family:var(--mono);font-size:12px;color:var(--scope);background:none;border:1px solid var(--rule);border-radius:3px;padding:6px 10px;cursor:pointer;text-transform:none;letter-spacing:0}
+.tl-open:hover{color:var(--signal);border-color:var(--signal)}
+button.btn{background:transparent;color:var(--ink);cursor:pointer}
+.tl-modal{border:0;padding:0;background:transparent;max-width:min(760px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 32px);color:var(--ink)}
+.tl-modal::backdrop{background:rgba(10,17,23,.62);backdrop-filter:blur(3px)}
+.tl-modal[open]{animation:tlIn .22s ease-out}
+@keyframes tlIn{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.tl-modal[open]{animation:none}}
+.tl-modal-in{background:var(--panel);border:1px solid var(--rule);border-radius:6px;display:flex;flex-direction:column;max-height:calc(100dvh - 32px);overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.tl-mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 20px 12px;border-bottom:1px solid var(--rule)}
+.tl-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tl-mhead h3{font-family:var(--display);font-size:21px;font-weight:600;margin:2px 0 0;line-height:1.2}
+.tl-close{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--rule);background:var(--bg);color:var(--ink);font-size:14px;cursor:pointer}
+.tl-close:hover{border-color:var(--signal);color:var(--signal)}
+.tl-legend{display:flex;flex-wrap:wrap;gap:16px;padding:10px 20px;font-size:12.5px;border-bottom:1px dashed var(--rule)}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px}
+.tl-legend .muted{color:var(--muted)}
+.lg{width:9px;height:9px;border-radius:50%;display:inline-block}
+.lg.edu{background:var(--scope)}.lg.work{background:var(--ink)}
+.ct{list-style:none;margin:0;padding:16px 20px 8px;overflow-y:auto;position:relative}
+.ct-item{display:grid;grid-template-columns:150px 1fr;gap:26px;position:relative;padding-bottom:16px}
+.ct-item::before{content:"";position:absolute;left:163px;top:6px;bottom:-6px;width:2px;background:var(--rule)}
+.ct-item:last-child::before{bottom:auto;height:10px}
+.ct-item::after{content:"";position:absolute;left:158px;top:4px;width:12px;height:12px;border-radius:50%;border:2px solid var(--panel);box-sizing:content-box;margin-left:-1px}
+.ct-item.edu::after{background:var(--scope)}
+.ct-item.work::after{background:var(--ink)}
+.ct-item.now::after{background:var(--signal);box-shadow:0 0 0 4px color-mix(in srgb,var(--signal) 22%,transparent)}
+.ct-date{text-align:right;font-variant-numeric:tabular-nums}
+.ct-date b{display:block;font-size:13px;font-weight:600;white-space:nowrap}
+.ct-date span{font-size:11.5px;color:var(--muted)}
+.ct-body{min-width:0}
+.ct-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ct-top h4{font-family:var(--display);font-size:16px;font-weight:600;margin:0;line-height:1.25}
+.ct-kind{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.ct-item.edu .ct-kind,.ct-item.edu .ct-org{color:var(--scope)}
+.ct-org{font-size:13.5px;font-weight:600;margin-top:1px}
+.ct-org span{font-weight:400;color:var(--muted)}
+.ct-body p{font-size:13px;color:var(--muted);margin:4px 0 0 !important;max-width:none}
+.tl-mfoot{display:flex;justify-content:flex-end;gap:10px;padding:12px 20px;border-top:1px solid var(--rule);background:var(--bg)}
+@media (max-width:560px){
+  .ct-item{grid-template-columns:1fr;gap:4px;padding-left:24px}
+  .ct-item::before{left:5px}.ct-item::after{left:0}
+  .ct-date{text-align:left;display:flex;gap:8px;align-items:baseline}
+  .tl-mhead,.tl-legend,.ct,.tl-mfoot{padding-left:16px;padding-right:16px}
+}
+body.modal-open{overflow:hidden}
+
 /* contact */
 .contact{background:var(--ink);color:var(--bg)}
 .contact .wrap{padding-block:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end}
@@ -315,6 +365,7 @@ footer span{opacity:.6}
         <div class="cta">
           <a class="btn primary" href="#contact">Get in touch →</a>
           <a class="btn" href="CV_Muneeb_ur_Rehman.pdf" target="_blank" rel="noopener">Download CV ↓</a>
+          <button class="btn" type="button" data-open-tl>View timeline</button>
           <a class="btn" href="#projects">See projects</a>
           <a class="btn" href="https://www.linkedin.com/in/muhammad-muneeb-ur-rehman-chaudhary-04a14235a/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
@@ -348,7 +399,7 @@ footer span{opacity:.6}
 
   <section class="block wide" id="experience">
     <div class="wrap">
-      <div class="rail">Experience<h2>Professional experience</h2></div>
+      <div class="rail rail-row"><div>Experience<h2>Professional experience</h2></div><button class="tl-open" type="button" data-open-tl>View full timeline →</button></div>
       <div class="content">
         <ol class="tl">
           <li class="stop">
@@ -533,6 +584,73 @@ footer span{opacity:.6}
     </div>
   </div>
 </section>
+<dialog class="tl-modal" id="tlModal" aria-labelledby="tlTitle">
+  <div class="tl-modal-in">
+    <header class="tl-mhead">
+      <div>
+        <div class="tl-eyebrow">Muneeb Ur Rehman</div>
+        <h3 id="tlTitle">Timeline of education &amp; experience</h3>
+      </div>
+      <button class="tl-close" type="button" id="tlClose" aria-label="Close timeline">✕</button>
+    </header>
+    <div class="tl-legend"><span><i class="lg edu"></i>Education</span><span><i class="lg work"></i>Work &amp; research</span><span class="muted">Most recent first</span></div>
+    <ol class="ct">
+        <li class="ct-item edu">
+          <div class="ct-date"><b>Sep 2026 – Oct 2026</b><span>2 months</span></div>
+          <div class="ct-body">
+            <div class="ct-top"><h4>German Language Course</h4><span class="ct-kind">Language course</span></div>
+            <div class="ct-org">National University of Modern Languages (NUML) <span>| Pakistan</span></div>
+            
+          </div>
+        </li>
+        <li class="ct-item edu">
+          <div class="ct-date"><b>Sep 2025 – Present</b><span>ongoing</span></div>
+          <div class="ct-body">
+            <div class="ct-top"><h4>M.Sc. in Electrical Engineering</h4><span class="ct-kind">Education</span></div>
+            <div class="ct-org">Foundation University, School of Science &amp; Technology <span>| Pakistan</span></div>
+            <p>CGPA 3.76 / 4.00 · Thesis: Machine Learning-Based Anomaly Detection in Automotive Embedded Systems</p>
+          </div>
+        </li>
+        <li class="ct-item work now">
+          <div class="ct-date"><b>Jan 2024 – Present</b><span>ongoing</span></div>
+          <div class="ct-body">
+            <div class="ct-top"><h4>Project Officer</h4><span class="ct-kind">Work experience</span></div>
+            <div class="ct-org">Defence Forces of Pakistan <span>| Pakistan</span></div>
+            <p>SIDS &amp; MSTAR radar deployment, enterprise CCTV surveillance, organisational cybersecurity framework</p>
+          </div>
+        </li>
+        <li class="ct-item work">
+          <div class="ct-date"><b>Jan 2019 – Dec 2023</b><span>5 years</span></div>
+          <div class="ct-body">
+            <div class="ct-top"><h4>Research Engineer</h4><span class="ct-kind">Research experience</span></div>
+            <div class="ct-org">Defence Forces of Pakistan <span>| Pakistan</span></div>
+            <p>Research projects in telecommunications and embedded systems</p>
+          </div>
+        </li>
+        <li class="ct-item work">
+          <div class="ct-date"><b>Jan 2018 – Dec 2018</b><span>1 year</span></div>
+          <div class="ct-body">
+            <div class="ct-top"><h4>Network Engineer</h4><span class="ct-kind">Work experience</span></div>
+            <div class="ct-org">Special Communication Organization <span>| Pakistan</span></div>
+            <p>Video conferencing deployment and telecom infrastructure support</p>
+          </div>
+        </li>
+        <li class="ct-item edu">
+          <div class="ct-date"><b>Sep 2013 – Sep 2017</b><span>4 years</span></div>
+          <div class="ct-body">
+            <div class="ct-top"><h4>B.Sc. in Telecommunication Engineering</h4><span class="ct-kind">Education</span></div>
+            <div class="ct-org">Military College of Signals, NUST <span>| Pakistan</span></div>
+            <p>CGPA 3.04 / 4.00 · Thesis: Design of Multi-Band Antenna for WLAN/WiMAX and C-Band Applications</p>
+          </div>
+        </li>
+    </ol>
+    <footer class="tl-mfoot">
+      <a class="btn primary" href="Timeline_Muneeb_ur_Rehman.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
+      <button class="btn" type="button" id="tlClose2">Close</button>
+    </footer>
+  </div>
+</dialog>
+
 <footer><div class="wrap"><span>© 2026 Muneeb Ur Rehman</span><span>Built for the web, tested on the bench.</span></div></footer>
 
 <script>
@@ -683,6 +801,17 @@ const CERTS_VISIBLE = 8;
   }
   addEventListener('resize',()=>{W=0;if(reduce)draw(performance.now())});
   requestAnimationFrame(draw);
+})();
+
+(function(){
+  const dlg=document.getElementById('tlModal'); if(!dlg) return;
+  const open=()=>{ if(typeof dlg.showModal==='function'){dlg.showModal()}else{dlg.setAttribute('open','')} document.body.classList.add('modal-open'); document.getElementById('tlClose').focus(); };
+  const close=()=>{ if(typeof dlg.close==='function'){dlg.close()}else{dlg.removeAttribute('open')} };
+  document.querySelectorAll('[data-open-tl]').forEach(b=>b.addEventListener('click',open));
+  document.getElementById('tlClose').addEventListener('click',close);
+  document.getElementById('tlClose2').addEventListener('click',close);
+  dlg.addEventListener('close',()=>document.body.classList.remove('modal-open'));
+  dlg.addEventListener('click',e=>{ if(e.target===dlg) close(); });
 })();
 </script>
 

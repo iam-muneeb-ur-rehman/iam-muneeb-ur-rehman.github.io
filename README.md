@@ -1,1 +1,13 @@
-<h1 align="center">Muneeb Ur Rehman</h1> <p align="center"> Telecommunication engineer · MS Electrical Engineering student<br> Machine learning for embedded systems · Radar · Cybersecurity </p> <p align="center"> <a href="https://iam-muneeb-ur-rehman.github.io"><img src="https://img.shields.io/badge/Website-iam--muneeb--ur--rehman.github.io-e0561f?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Personal website"></a> <a href="https://www.linkedin.com/in/muhammad-muneeb-ur-rehman-chaudhary-04a14235a/"><img src="https://img.shields.io/badge/LinkedIn-Muneeb%20Rehman-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a> <a href="mailto:munibch786@gmail.com"><img src="https://img.shields.io/badge/Email-munibch786%40gmail.com-14202b?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a> </p>
+# Muneeb Ur Rehman
+
+Personal website of Muneeb Ur Rehman: telecommunication engineer working on radar, surveillance and security systems, and MS Electrical Engineering student researching machine learning for embedded systems.
+
+## Files
+
+- `index.html`: the whole website (layout, styles and scripts in one file)
+- `assets/muneeb-photo.jpg`: profile photo
+- `assets/muneeb-avatar.jpg`: small round photo used in the header
+
+## Updating certificates
+
+Open `index.html`, search for `const CERTS`, and edit or add one line per certificate (name, issuer, date, credential ID, verify link).
